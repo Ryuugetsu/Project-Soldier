@@ -7,6 +7,10 @@ using System.Collections;
 public class Actions : MonoBehaviour {
 
 	private Animator animator;
+    private Animation anim;
+    
+
+
 
 	const int countOfDamageAnimations = 3;
 	int lastDamageAnimation = -1;
@@ -33,9 +37,9 @@ public class Actions : MonoBehaviour {
 
 	public void Attack () {
 		Aiming ();
-		animator.SetTrigger ("Attack");
-	}
-
+        animator.SetTrigger("Attack");        
+    }
+    
 	public void Death () {
 		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("Death"))
 			animator.Play("Idle", 0);

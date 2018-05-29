@@ -111,9 +111,12 @@ GameObject:
   - component: {fileID: 9543920}
   - component: {fileID: 13543920}
   - component: {fileID: 5443920}
+  - component: {fileID: 114267464841124096}
+  - component: {fileID: 114838147963371008}
+  - component: {fileID: 195742162951414276}
   m_Layer: 0
   m_Name: troll_02_01_Mecanim
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -787,6 +790,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 443828}
+  - component: {fileID: 136403011122254840}
+  - component: {fileID: 114740680073924946}
   m_Layer: 0
   m_Name: Bip01 Prop1
   m_TagString: Untagged
@@ -973,9 +978,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143816}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -2.717, y: 0.3361685, z: 0}
-  m_LocalScale: {x: 0.045, y: 0.045, z: 0.045}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 17.993, y: -0.86, z: 0}
+  m_LocalScale: {x: 0.04500007, y: 0.045, z: 0.04500007}
   m_Children:
   - {fileID: 443816}
   - {fileID: 443910}
@@ -986,7 +991,7 @@ Transform:
   - {fileID: 419672}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &443824
 Transform:
   m_ObjectHideFlags: 1
@@ -1627,7 +1632,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 122
+  m_Constraints: 24
   m_CollisionDetection: 0
 --- !u!95 &9543920
 Animator:
@@ -1638,7 +1643,7 @@ Animator:
   m_GameObject: {fileID: 143816}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 73ff16e92606e684c9c429608436430a, type: 3}
-  m_Controller: {fileID: 9100000, guid: 8c3cc79a2ba752549a6022f0663a6b43, type: 2}
+  m_Controller: {fileID: 22100000, guid: ca433270d61b33b45877e5c358b933de, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -18830,3 +18835,80 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 143816}
   m_IsPrefabParent: 1
+--- !u!114 &114267464841124096
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d38ab670f788f6141b06831963e9c3d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 0}
+  _weapon: {fileID: 114740680073924946}
+  _life: 200
+  _distanceToAttack: 1.4
+  _distanceToFollow: 5
+--- !u!114 &114740680073924946
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c9f9fde81d88344cbdfa8ede4b9afee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 0}
+  _attackForce: 100
+  _enemyActions: {fileID: 114838147963371008}
+--- !u!114 &114838147963371008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef0a22fb38e0a64c990971a36a36b78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
+  _atacando: 0
+--- !u!136 &136403011122254840
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143908}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 4.58
+  m_Height: 13.4
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 11.14}
+--- !u!195 &195742162951414276
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143816}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 4.3
+  m_Speed: 2
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 360
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 25.98
+  m_BaseOffset: -2.98
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

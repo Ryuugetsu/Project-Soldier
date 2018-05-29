@@ -9,6 +9,12 @@ public class PlayerController : MonoBehaviour {
 	public Arsenal[] arsenal;
 
 	private Animator animator;
+    [HideInInspector]    
+    public float _fireRate;
+    [HideInInspector]
+    public int _damage;
+    [HideInInspector]
+    public float _shotDistance;
 
 	void Awake() {
 		animator = GetComponent<Animator> ();
@@ -36,6 +42,9 @@ public class PlayerController : MonoBehaviour {
 					newLeftGun.transform.localRotation = Quaternion.Euler(90, 0, 0);
 				}
 				animator.runtimeAnimatorController = hand.controller;
+                _damage = hand.damage;
+                _fireRate = hand.fireRate;
+                _shotDistance = hand.shotDistance;
 				return;
 				}
 		}
@@ -44,6 +53,9 @@ public class PlayerController : MonoBehaviour {
 	[System.Serializable]
 	public struct Arsenal {
 		public string name;
+        public int damage;
+        public float fireRate;
+        public float shotDistance;
 		public GameObject rightGun;
 		public GameObject leftGun;
 		public RuntimeAnimatorController controller;

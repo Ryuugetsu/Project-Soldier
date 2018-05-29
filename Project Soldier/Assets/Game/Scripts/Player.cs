@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
     private Actions _actions;
     private PlayerController _playerController;
 
+
        
     [SerializeField]
     private Camera _playerCamera;
@@ -17,8 +18,9 @@ public class Player : MonoBehaviour {
     private GameObject _shotgunShotPrefab;
     [SerializeField]
     private GameObject _sniperShotPrefab;
-
-
+    
+    private Enemy _enemy;
+    private UIManager _uiManager;
 
 
     [SerializeField]
@@ -29,27 +31,41 @@ public class Player : MonoBehaviour {
     private float _weapon;
     private float _fireRate;
     private float _canFire = 0;
-    private int _loopCount;
-
+    private int _weaponDamage;
+    private float _shotDistance;
+    public int _life;
+    public bool _isDead = false;
+    public bool _lock = false;
+    private int _z = 0;
+    
     
 	// Use this for initialization
 	void Start () {
         _characterController = GetComponent<CharacterController>();
         _actions = GetComponent<Actions>();
         _playerController = GetComponent<PlayerController>();
+        _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
 
-              
-        _loopCount = 0;
+        _uiManager.UpdateLifes(_life);
     }
 
     // Update is called once per frame
     void Update()
     {
-        CalculateMovement();
-        WeaponChange();
-
+        if (_lock == false)
+        {
+            if (_isDead == false)
+            {
+                CalculateMovement();
+                WeaponChange();
+            }
+            else
+            {
+                Death();
+            }
+        }
     }
-
+    
     private void CalculateMovement()
     {
         float move = _speed;
@@ -71,6 +87,7 @@ public class Player : MonoBehaviour {
         Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
         Vector3 velocity = direction * move;
         velocity.y -= _gravity;
+        transform.position = new Vector3(transform.position.x, transform.position.y, _z);
 
         //calcular rotação do player
         if (Input.GetAxis("Horizontal") < 0)
@@ -93,6 +110,7 @@ public class Player : MonoBehaviour {
                 Jump();
                 
             }
+            
             _characterController.Move(velocity * Time.deltaTime);
         }
         else
@@ -117,24 +135,37 @@ public class Player : MonoBehaviour {
 
     private void WeaponChange()
     {
+
         if (Input.GetAxis("D-Pad Y") > 0 || Input.GetButtonDown("Up"))
         {
             _playerController.SetArsenal("Empty");
+            _fireRate = _playerController._fireRate;
+            _weaponDamage = _playerController._damage;
+            _shotDistance = _playerController._shotDistance;
             _weapon = 0;
         }
         else if (Input.GetAxis("D-Pad Y") < 0 || Input.GetButtonDown("Down"))
         {
             _playerController.SetArsenal("Shotgun");
+            _fireRate = _playerController._fireRate;
+            _weaponDamage = _playerController._damage;
+            _shotDistance = _playerController._shotDistance;
             _weapon = 1;
         }
         else if (Input.GetAxis("D-Pad X") > 0 || Input.GetButtonDown("Right"))
         {
             _playerController.SetArsenal("AK-74M");
+            _fireRate = _playerController._fireRate;
+            _weaponDamage = _playerController._damage;
+            _shotDistance = _playerController._shotDistance;
             _weapon = 2;
         }
         else if (Input.GetAxis("D-Pad X") < 0 || Input.GetButtonDown("Left"))
         {
             _playerController.SetArsenal("Sniper Rifle");
+            _fireRate = _playerController._fireRate;
+            _weaponDamage = _playerController._damage;
+            _shotDistance = _playerController._shotDistance;
             _weapon = 3;
         }
     }
@@ -146,20 +177,28 @@ public class Player : MonoBehaviour {
         }
     }
 
+    private void RayCast()
+    {
+        Ray rayOrigin = _playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        RaycastHit hitInfo;
+
+        if (Physics.Raycast(rayOrigin, out hitInfo, _shotDistance))
+        {
+
+            if (hitInfo.transform.tag == "Enemy")
+            {
+                _enemy = hitInfo.transform.GetComponent<Enemy>();
+                _enemy._life -= _weaponDamage; 
+
+            }
+        }
+    }
+
     private void Shot()
     {
         if (Input.GetButton("Fire1"))
         {
-            // teste de colisão do tiro                        
-            Ray rayOrigin = _playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-            RaycastHit hitInfo;
-            if(Physics.Raycast(rayOrigin, out hitInfo))
-            {
-                if (hitInfo.transform.tag == "Enemy")
-                {
-
-                }
-            }
+            
 
 
             //teste do tipo de tiro
@@ -169,43 +208,47 @@ public class Player : MonoBehaviour {
             }
             else if(_weapon == 1 && Input.GetButtonDown("Fire1") && Time.time > _canFire)        //Shotgun
             {
-                _fireRate = 0.5f;
                 _actions.Attack();
                 _shotgunShotPrefab.SetActive(true);
-                Instantiate(_shotgunShotPrefab, _shotgunShotPrefab.transform.position, Quaternion.Euler(0, 90, 0));
+                Instantiate(_shotgunShotPrefab, _shotgunShotPrefab.transform.position, transform.rotation);
+                RayCast();
 
                 _canFire = Time.time + _fireRate;
             }
             else if (_weapon == 2 && Time.time > _canFire)      //AK-74M
             {
-                _fireRate = 0.1f;
                 _actions.Attack();
                 _akShotPrefab.SetActive(true);
+                Instantiate(_akShotPrefab, _shotgunShotPrefab.transform.position, transform.rotation);
+                RayCast();
 
-                Instantiate(_akShotPrefab, _shotgunShotPrefab.transform.position, Quaternion.Euler(0, 90, 0));
                 _canFire = Time.time + _fireRate;
                 
             }
             else if (_weapon == 3 && Input.GetButtonDown("Fire1") && Time.time > _canFire)     //Sniper Rifle
             {
-                _fireRate = 0.7f;
                 _actions.Attack();
                 _sniperShotPrefab.SetActive(true);
-                Instantiate(_sniperShotPrefab, _sniperShotPrefab.transform.position, Quaternion.Euler(0, 90, 0));
+                Instantiate(_sniperShotPrefab, _sniperShotPrefab.transform.position, transform.rotation);
+                RayCast();
 
                 _canFire = Time.time + _fireRate;
             }
-
-            _loopCount++;
         }
         else if(Input.GetButtonUp("Fire1"))
         {
-            _akShotPrefab.SetActive(false);
-
-            _loopCount = 0;
+            _akShotPrefab.SetActive(false);            
         }
     }
     
-
+    public void Death()
+    {
+        if(_life <= 0)
+        {
+            _life = 0;
+            _actions.Death();
+            _isDead = true;
+        }
+    }
     
 }
