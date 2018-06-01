@@ -7,9 +7,10 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour {
 
-    public AudioMixer _audioMixer;
-    public Dropdown _resolutionDropdown;
-
+    public AudioMixer audioMixer;
+    public Dropdown resolutionDropdown;    
+    public GameObject loaderScreen;
+    private LevelLoader _levelLoader;
     private Resolution[] _resolutions;
 
 
@@ -18,10 +19,14 @@ public class MainMenu : MonoBehaviour {
         GetUnityResolutions();
     }
 
+
     public void PlayGame()
     {
         //envia para a proxima scene de acordo com a ordem na lista de build
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        loaderScreen.SetActive(true);
+        _levelLoader = loaderScreen.GetComponent<LevelLoader>();
+        _levelLoader.LoadLevel();
     }
 
     public void QuitGame()
@@ -33,7 +38,7 @@ public class MainMenu : MonoBehaviour {
     public void SetVolume(float volume)
     {
         //alteração do volume do jogo
-        _audioMixer.SetFloat("Volume", volume);
+        audioMixer.SetFloat("Volume", volume);
     }
 
     public void SetQuality(int qualityIndex)
@@ -47,7 +52,7 @@ public class MainMenu : MonoBehaviour {
         //pegar todas as resoluções disponiveis
         _resolutions = Screen.resolutions;
         //limpar as opções atuais do dropdown
-        _resolutionDropdown.ClearOptions();
+        resolutionDropdown.ClearOptions();
 
         //criar lista para popular o dropdown
         List<string> options = new List<string>();
@@ -66,10 +71,10 @@ public class MainMenu : MonoBehaviour {
             }
         }
         //popular dropdown com as resoluções já armazenadas na lista options
-        _resolutionDropdown.AddOptions(options);
+        resolutionDropdown.AddOptions(options);
         //seta a resolução do monitor como a padrão do dropdown
-        _resolutionDropdown.value = currentResolutionIndex;
-        _resolutionDropdown.RefreshShownValue();
+        resolutionDropdown.value = currentResolutionIndex;
+        resolutionDropdown.RefreshShownValue();
     }
 
     public void SetResolutions(int resolutionIndex)
@@ -84,6 +89,5 @@ public class MainMenu : MonoBehaviour {
     {
         //full screen
         Screen.fullScreen = isFullscreen;
-    }
-
+    }        
 }

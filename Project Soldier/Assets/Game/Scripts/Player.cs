@@ -9,7 +9,7 @@ public class Player : MonoBehaviour {
     private PlayerController _playerController;
 
 
-       
+
     [SerializeField]
     private Camera _playerCamera;
     [SerializeField]
@@ -18,9 +18,10 @@ public class Player : MonoBehaviour {
     private GameObject _shotgunShotPrefab;
     [SerializeField]
     private GameObject _sniperShotPrefab;
-    
+
     private Enemy _enemy;
     private UIManager _uiManager;
+    private CapsuleCollider _collider;
 
 
     [SerializeField]
@@ -37,6 +38,10 @@ public class Player : MonoBehaviour {
     public bool _isDead = false;
     public bool _lock = false;
     private int _z = 0;
+
+    private float _verticalVelocity;
+    private float _jumpForce;
+    public SphereCollider groundTest;
     
     
 	// Use this for initialization
@@ -57,7 +62,7 @@ public class Player : MonoBehaviour {
             if (_isDead == false)
             {
                 CalculateMovement();
-                WeaponChange();
+                WeaponChange();                
             }
             else
             {
@@ -116,7 +121,7 @@ public class Player : MonoBehaviour {
         else
         {
             _actions.Stay();
-            Jump();
+            Jump();            
             Aiming();
             Shot();
         }
@@ -129,7 +134,6 @@ public class Player : MonoBehaviour {
         if (Input.GetButtonDown("Jump"))
         {
             _actions.Jump();
-
         }
     }
 

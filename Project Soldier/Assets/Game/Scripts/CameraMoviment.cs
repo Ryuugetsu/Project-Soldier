@@ -7,8 +7,9 @@ public class CameraMoviment : MonoBehaviour {
     private float _posY;
     private float _posZ;
     private bool _locked;
-    private float _alignRight = -3f;
-    private float _alignLeft = 3f;
+    private float _alignRight = -2.7f;
+    private float _alignLeft = 2.7f;
+    
     
 	// Use this for initialization
 	void Start () {

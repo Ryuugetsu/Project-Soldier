@@ -8,6 +8,7 @@ public class Actions : MonoBehaviour {
 
 	private Animator animator;
     private Animation anim;
+    private bool isJumping;
     
 
 
@@ -62,7 +63,7 @@ public class Actions : MonoBehaviour {
 		animator.SetBool ("Squat", false);
 		animator.SetBool("Aiming", false);
 		animator.SetTrigger ("Jump");
-
+        
 	}
 
 	public void Aiming () {
