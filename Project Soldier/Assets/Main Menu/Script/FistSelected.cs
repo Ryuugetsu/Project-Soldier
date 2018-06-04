@@ -4,10 +4,20 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class FistSelected : MonoBehaviour {
-    public GameObject gameObject;
+    public GameObject botaoVoltar;
+    public GameObject reselect;
 	// Use this for initialization
 	void Start () {
-        EventSystem.current.SetSelectedGameObject(gameObject);
-       
+        EventSystem.current.SetSelectedGameObject(botaoVoltar);       
 	}
+
+    private void OnEnable()
+    {
+        EventSystem.current.SetSelectedGameObject(botaoVoltar);
+    }
+    
+    public void SelectOnBack()
+    {
+        EventSystem.current.SetSelectedGameObject(reselect);
+    }
 }

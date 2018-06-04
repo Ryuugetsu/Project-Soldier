@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour {
     public GameObject loaderScreen;
     private LevelLoader _levelLoader;
     private Resolution[] _resolutions;
-
+    
 
     private void Start()
     {
@@ -89,5 +89,5 @@ public class MainMenu : MonoBehaviour {
     {
         //full screen
         Screen.fullScreen = isFullscreen;
-    }        
+    }           
 }
