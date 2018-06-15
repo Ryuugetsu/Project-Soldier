@@ -9,6 +9,6 @@ public class UIManager : MonoBehaviour {
 
     public void UpdateLifes(int currentLife)
     {
-        _life.text = "Vida: " + currentLife;
+        _life.text = LocalizationManager.instance.GetLocalizedValue("life_text")+ " " + currentLife;
     }
 }

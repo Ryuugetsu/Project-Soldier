@@ -1,0 +1,45 @@
+﻿{"items":
+	[
+		
+		{"key":"sacerdotisa","value":"Sacerdotisa"},
+		{"key":"soldado","value":"Hawk"},
+
+
+		{"key":"play_buttom","value":"Iniciar"},
+		{"key":"sinopse_buttom","value":"Sinopse"},
+		{"key":"instuctions_buttom","value":"Instruções"},
+		{"key":"config_buttom","value":"Configurações"},
+		{"key":"credits_buttom","value":"Créditos"},
+		{"key":"back_buttom","value":"Voltar"},
+		{"key":"quit_buttom","value":"Sair"},
+		{"key":"resume_buttom","value":"Resumir"},
+		{"key":"mainMenu_buttom","value":"Menu Principal"},
+		
+		
+
+		{"key":"volume_text","value":"Volume"},
+		{"key":"grafic_text","value":"Gráficos"},
+		{"key":"resolution_text","value":"Resolução"},
+		{"key":"fullscreen_text","value":"Tela Cheia"},
+		{"key":"language_text","value":"Linguagem"},
+		{"key":"life_text","value":"Vida:"},
+
+
+		{"key":"sinopse_text","value":"Este trata da estória de um soldado estilo hard boiled que foi convocado para outro mundo através de uma magia especial chamada, magia de convocação de herói. Ao ser convocado ele se descobre na entrada de uma caverna, então uma voz santa e misteriosa que se diz uma sacerdotisa de um ser divino, começa a falar com ele via “telepatia” e diz tê-lo convocado a fim de pedir sua ajuda para derrotar o rei demônio que ameaça destruir o mundo."},
+		
+		{"key":"instructions_text","value":"texto"},
+
+		{"key":"Dialogo_01","value":"Oh grande herói, eu sou uma sacerdotisa que serve ao Deus da luz. O motivo de tê-lo invocado a este mundo, é porque tenho um favor a te pedir, por favor ajude-nos a matar o rei demônio que aterroriza e ameaça a existência de toda a vida nessas terras"},
+		{"key":"Dialogo_02","value":"(hum... herói?... este mundo?... do que essa voz esta falando e cadê a dona dela? Isso é um transmissor de voz?)"},
+		{"key":"Dialogo_03","value":"Oque é o rei demônio? um codinome? "},
+		{"key":"Dialogo_04","value":"hum... codinome? Oque isso significaria? Seria uma espécie de titulo? Bem... o seu verdadeiro nome seria Maphews."},
+		{"key":"Dialogo_05","value":"e você quer que eu o mate? Isso é uma missão?"},
+		{"key":"Dialogo_06","value":"missão? Se refere a aquelas iguais das guildas de guerreiros e magos? Creio que podemos dizer que sim. Grande herói está disposto a nos ajudar a derrotar o rei demônio e salvar assim o nosso mundo?"},
+		{"key":"Dialogo_07","value":"Apesar de não ter entendido tudo oque disse, eu simpatizo com sua causa e vou aceitar a missão"},
+		{"key":"Dialogo_08","value":"Muito obrigada, oh grande herói"},
+		{"key":"Dialogo_09","value":"Meu codinome é Hawk"},
+		{"key":"Dialogo_10","value":"oh, humm... meu nome é Freya, prazer em conhece-lo, bem... permita-me explicar-lhe sobre os poderes ganhos ao ser invocado como herói e sobre o uso da magia, o ser invocado você automaticamente teve sua força e energia amplificados, assim como também recebeu um talento natural para o uso da magia, permita-me lhe ensinar o básico de como se usa a magia..."},
+		{"key":"Dialogo_11","value":"Magia? Isso não é faz meu estilo, eu tenho tudo o que preciso bem aqui!"},
+		{"key":"Dialogo_12","value":"hum... tudo bem então, eu acho"}
+	]
+}

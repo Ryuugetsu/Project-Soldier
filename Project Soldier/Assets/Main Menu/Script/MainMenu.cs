@@ -8,14 +8,18 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour {
 
     public AudioMixer audioMixer;
-    public Dropdown resolutionDropdown;    
+    public Dropdown resolutionDropdown;
+    public Dropdown language;
     public GameObject loaderScreen;
     private LevelLoader _levelLoader;
     private Resolution[] _resolutions;
+    private LocalizationManager localizationManager;
     
 
     private void Start()
     {
+        localizationManager = FindObjectOfType<LocalizationManager>();
+        
         GetUnityResolutions();
     }
 
@@ -90,4 +94,18 @@ public class MainMenu : MonoBehaviour {
         //full screen
         Screen.fullScreen = isFullscreen;
     }           
+
+    public void SetLanguage()
+    {
+        switch (language.value)
+        {
+            case 0:
+                localizationManager.LoadLocalizedText("portugues.json");
+                break;
+
+            case 1:
+                localizationManager.LoadLocalizedText("ingles.json");
+                break;
+        }
+    }
 }

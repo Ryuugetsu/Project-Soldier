@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    private CharacterController _characterController;
+	private Rigidbody _characterRigidbody;
     private Actions _actions;
     private PlayerController _playerController;
 
@@ -18,80 +18,81 @@ public class Player : MonoBehaviour {
     private GameObject _shotgunShotPrefab;
     [SerializeField]
     private GameObject _sniperShotPrefab;
-
+    
     private Enemy _enemy;
     private UIManager _uiManager;
     private CapsuleCollider _collider;
-
-
+    
     [SerializeField]
+    private float _walkSpeed;
+    [SerializeField]
+    private float _runSpeed;
+    private Vector3 velocity = Vector3.zero;
     private float _speed;
-    [SerializeField]
-    private float _hightSpeed;
     private float _gravity = 9.81f;
     private float _weapon;
     private float _fireRate;
     private float _canFire = 0;
     private int _weaponDamage;
     private float _shotDistance;
+    private bool _isAttacking = false;
     public int _life;
     public bool _isDead = false;
-    public bool _lock = false;
+    public bool _lock = false; //serve para paralisar totalmente o player
     private int _z = 0;
 
-    private float _verticalVelocity;
-    private float _jumpForce;
-    public SphereCollider groundTest;
-    
-    
+	public float _jumpForce;    
+	private float tempoPulando;
+	public float maxTempoPulando = 0.5f;
+	public float maxParaTempoPular = 0.1f;
+    private float _distToGround;
+
+
 	// Use this for initialization
 	void Start () {
-        _characterController = GetComponent<CharacterController>();
+		_characterRigidbody = GetComponent<Rigidbody>();
         _actions = GetComponent<Actions>();
         _playerController = GetComponent<PlayerController>();
         _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+        _collider = GetComponent<CapsuleCollider>();
 
         _uiManager.UpdateLifes(_life);
+        _distToGround = _collider.bounds.extents.y;
+		tempoPulando = maxTempoPulando + 1f;
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {        
         if (_lock == false)
         {
             if (_isDead == false)
-            {
+            {                
                 CalculateMovement();
-                WeaponChange();                
+                   
+                if(_isAttacking == false)
+                {
+                    WeaponChange();
+                    Jump();
+                }
             }
             else
             {
                 Death();
             }
-        }
+        }      
     }
     
     private void CalculateMovement()
     {
-        float move = _speed;
 
+        _speed = _walkSpeed;
+        Run();
         
 
-        //calculo do metodo Run + Running Jump
-        if (Input.GetButton("Run"))
-        {
-            move = _hightSpeed;
-            _actions.Run();
-
-            _akShotPrefab.SetActive(false);
-            
-            Jump();
-        }
-
-        //calcuar direção, velocidade e gravidade
+        //calcuar direção
         Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
-        Vector3 velocity = direction * move;
-        velocity.y -= _gravity;
+        //travar o eixo Z
         transform.position = new Vector3(transform.position.x, transform.position.y, _z);
 
         //calcular rotação do player
@@ -102,38 +103,63 @@ public class Player : MonoBehaviour {
         else if(Input.GetAxis("Horizontal") > 0)
         {
             transform.localRotation = Quaternion.Euler(new Vector3(0, 90, 0));
-        }
+        }     
                 
-        //animação Walk/Stay e metodo Move + Walking jump and Stay Jump
+		//animação Idle, Walk e Run + Idle Actions
         if (Input.GetAxis("Horizontal") > 0.3 || Input.GetAxis("Horizontal") < -0.3)
         {
-            if(move == _speed)
+            //testa se esta andando ou correndoe dispara a animação correspondente
+            if(_speed == _walkSpeed)
             {
                 _akShotPrefab.SetActive(false);
-
                 _actions.Walk();
-                Jump();
+
+            }
+            else
+            {
+                _actions.Run();
+                _akShotPrefab.SetActive(false);
                 
             }
             
-            _characterController.Move(velocity * Time.deltaTime);
+			velocity.Set(direction.x * _speed, velocity.y, 0f);
         }
         else
         {
-            _actions.Stay();
-            Jump();            
+            //Se estiver parado solta o idle
+            _actions.Stay();                        
             Aiming();
             Shot();
         }
-               
-    }
+
+		_characterRigidbody.AddForce (velocity);
+    }    
 
     private void Jump()
-    {
-        //Pular
-        if (Input.GetButtonDown("Jump"))
+    {        
+
+        if (Input.GetButtonDown("Jump") && tempoPulando > maxTempoPulando && !IsNotGounded())
         {
             _actions.Jump();
+            tempoPulando = 0;
+
+        }
+        if (tempoPulando > maxParaTempoPular && tempoPulando < maxTempoPulando)
+        {
+            velocity.Set(0, _jumpForce, 0);
+        }
+        else
+        {
+            velocity.Set(0, -_gravity, 0);
+        }
+        tempoPulando += Time.deltaTime;
+    }
+
+    private void Run()
+    {
+        if (Input.GetButton("Run"))
+        {
+            _speed = _runSpeed;
         }
     }
 
@@ -178,6 +204,11 @@ public class Player : MonoBehaviour {
         if (Input.GetButton("Fire2"))
         {
             _actions.Aiming();
+            _isAttacking = true;
+        }
+        if (Input.GetButtonUp("Fire2"))
+        {
+            _isAttacking = false;
         }
     }
 
@@ -200,11 +231,9 @@ public class Player : MonoBehaviour {
 
     private void Shot()
     {
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1") && !IsNotGounded())
         {
-            
-
-
+            _isAttacking = true;
             //teste do tipo de tiro
             if (_weapon == 0)       //Mãos livres
             {
@@ -241,7 +270,8 @@ public class Player : MonoBehaviour {
         }
         else if(Input.GetButtonUp("Fire1"))
         {
-            _akShotPrefab.SetActive(false);            
+            _akShotPrefab.SetActive(false);
+            _isAttacking = false;
         }
     }
     
@@ -254,5 +284,9 @@ public class Player : MonoBehaviour {
             _isDead = true;
         }
     }
-    
+
+    public bool IsNotGounded()
+    {
+        return Physics.Raycast(transform.position, -Vector3.up, _distToGround + 0.1f);
+    }
 }

@@ -502,8 +502,9 @@ GameObject:
   - component: {fileID: 76423193}
   - component: {fileID: 76423195}
   - component: {fileID: 76423194}
+  - component: {fileID: 76423196}
   m_Layer: 5
-  m_Name: Label
+  m_Name: FullScreen Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -566,6 +567,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 76423192}
+--- !u!114 &76423196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 76423192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0098c7c74b71cb0448bd510dd4dc3b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: fullscreen_text
 --- !u!1 &116484961
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,6 +1634,7 @@ GameObject:
   - component: {fileID: 369983260}
   - component: {fileID: 369983262}
   - component: {fileID: 369983261}
+  - component: {fileID: 369983263}
   m_Layer: 5
   m_Name: Sinopse Text
   m_TagString: Untagged
@@ -1685,6 +1699,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 369983259}
+--- !u!114 &369983263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 369983259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0098c7c74b71cb0448bd510dd4dc3b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: sinopse_buttom
 --- !u!1 &390025654
 GameObject:
   m_ObjectHideFlags: 0
@@ -1831,6 +1857,7 @@ GameObject:
   - component: {fileID: 423802820}
   - component: {fileID: 423802822}
   - component: {fileID: 423802821}
+  - component: {fileID: 423802823}
   m_Layer: 5
   m_Name: "Configura\xE7\xF5es Text "
   m_TagString: Untagged
@@ -1895,6 +1922,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 423802819}
+--- !u!114 &423802823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 423802819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0098c7c74b71cb0448bd510dd4dc3b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: config_buttom
 --- !u!1 &434182411
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,6 +2235,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   botaoVoltar: {fileID: 1390016176}
   reselect: {fileID: 0}
+--- !u!1 &456517478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 456517479}
+  - component: {fileID: 456517480}
+  m_Layer: 0
+  m_Name: LocalizationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &456517479
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 456517478}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 303.64868, y: 156.9494, z: -8.125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &456517480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 456517478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb4ff6353b37c6d45a4cb4cefa38e5dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &467605965
 GameObject:
   m_ObjectHideFlags: 0
@@ -2310,6 +2389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 4245826411fa728448328019143b674d, type: 2}
   resolutionDropdown: {fileID: 434182413}
+  language: {fileID: 1678855851}
   loaderScreen: {fileID: 1567020549}
 --- !u!1 &477096498
 GameObject:
@@ -2321,6 +2401,7 @@ GameObject:
   - component: {fileID: 477096499}
   - component: {fileID: 477096501}
   - component: {fileID: 477096500}
+  - component: {fileID: 477096502}
   m_Layer: 5
   m_Name: "Instru\xE7\xF5es Text"
   m_TagString: Untagged
@@ -2385,6 +2466,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 477096498}
+--- !u!114 &477096502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 477096498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0098c7c74b71cb0448bd510dd4dc3b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: instuctions_buttom
 --- !u!1 &508173610
 GameObject:
   m_ObjectHideFlags: 0
@@ -4189,6 +4282,7 @@ GameObject:
   - component: {fileID: 787066097}
   - component: {fileID: 787066099}
   - component: {fileID: 787066098}
+  - component: {fileID: 787066100}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -4211,8 +4305,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 7.37, y: 0}
+  m_SizeDelta: {x: -14.75, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &787066098
 MonoBehaviour:
@@ -4246,13 +4340,25 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 2
-  m_Text: "\tIniciar"
+  m_Text: "Bot\xE3o Iniciar"
 --- !u!222 &787066099
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 787066096}
+--- !u!114 &787066100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 787066096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0098c7c74b71cb0448bd510dd4dc3b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: play_buttom
 --- !u!1 &788817995
 GameObject:
   m_ObjectHideFlags: 0
@@ -4414,8 +4520,9 @@ GameObject:
   - component: {fileID: 844843349}
   - component: {fileID: 844843351}
   - component: {fileID: 844843350}
+  - component: {fileID: 844843352}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Voltar Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4478,6 +4585,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 844843348}
+--- !u!114 &844843352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 844843348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0098c7c74b71cb0448bd510dd4dc3b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: back_buttom
 --- !u!1 &1014134258
 GameObject:
   m_ObjectHideFlags: 0
@@ -5135,6 +5254,7 @@ GameObject:
   - component: {fileID: 1232868991}
   - component: {fileID: 1232868993}
   - component: {fileID: 1232868992}
+  - component: {fileID: 1232868994}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -5157,8 +5277,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 7.3725, y: 0}
+  m_SizeDelta: {x: -14.745, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1232868992
 MonoBehaviour:
@@ -5192,13 +5312,25 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 2
-  m_Text: "\tSair"
+  m_Text: "Bot\xE3o Sair"
 --- !u!222 &1232868993
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1232868990}
+--- !u!114 &1232868994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1232868990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0098c7c74b71cb0448bd510dd4dc3b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: quit_buttom
 --- !u!1 &1236829115
 GameObject:
   m_ObjectHideFlags: 0
@@ -5605,8 +5737,9 @@ GameObject:
   - component: {fileID: 1322578252}
   - component: {fileID: 1322578254}
   - component: {fileID: 1322578253}
+  - component: {fileID: 1322578255}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Voltar Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5669,6 +5802,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1322578251}
+--- !u!114 &1322578255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1322578251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0098c7c74b71cb0448bd510dd4dc3b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: back_buttom
 --- !u!1 &1329547452
 GameObject:
   m_ObjectHideFlags: 0
@@ -5679,6 +5824,7 @@ GameObject:
   - component: {fileID: 1329547453}
   - component: {fileID: 1329547455}
   - component: {fileID: 1329547454}
+  - component: {fileID: 1329547456}
   m_Layer: 5
   m_Name: Texto da Sinopse
   m_TagString: Untagged
@@ -5736,23 +5882,25 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Este trata da est\xF3ria de um soldado estilo hard boiled que foi convocado
-    para outro mundo atrav\xE9s de uma magia especial chamada, magia de convoca\xE7\xE3o
-    de her\xF3i. Ao ser convocado ele se descobre na entrada de uma caverna, ent\xE3o
-    uma voz santa e misteriosa que se diz uma sacerdotisa de um ser divino, come\xE7a
-    a falar com ele via \u201Ctelepatia\u201D e diz t\xEA-lo convocado a fim de pedir
-    sua ajuda para derrotar o rei dem\xF4nio que amea\xE7a destruir o mundo.\r\n\nInicialmente
-    ele estava meio perdido sobre toda essa est\xF3ria de outro mundo, dungeon, rei
-    dem\xF4nio e uma voz do al\xE9m conversando com ele, pois ele \xE9 afinal um soldado,
-    um militar e normalmente acharia um absurdo esta est\xF3ria, mas como ele n\xE3o
-    sabia aonde estava, ele resolveu tentar encarar isso como uma esp\xE9cie de \u201Cmiss\xE3o\u201D
-    e concorda ajud\xE1-la a derrotar o suposto rei dem\xF4nio.\r\n"
+  m_Text: text
 --- !u!222 &1329547455
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1329547452}
+--- !u!114 &1329547456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1329547452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0098c7c74b71cb0448bd510dd4dc3b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: sinopse_text
 --- !u!1 &1348550766
 GameObject:
   m_ObjectHideFlags: 0
@@ -5873,8 +6021,9 @@ GameObject:
   - component: {fileID: 1365922580}
   - component: {fileID: 1365922582}
   - component: {fileID: 1365922581}
+  - component: {fileID: 1365922583}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Voltar Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5937,6 +6086,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1365922579}
+--- !u!114 &1365922583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1365922579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0098c7c74b71cb0448bd510dd4dc3b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: back_buttom
 --- !u!1 &1368809679
 GameObject:
   m_ObjectHideFlags: 0
@@ -5947,6 +6108,7 @@ GameObject:
   - component: {fileID: 1368809680}
   - component: {fileID: 1368809682}
   - component: {fileID: 1368809681}
+  - component: {fileID: 1368809683}
   m_Layer: 5
   m_Name: Linguagem Text
   m_TagString: Untagged
@@ -6011,6 +6173,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1368809679}
+--- !u!114 &1368809683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1368809679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0098c7c74b71cb0448bd510dd4dc3b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: language_text
 --- !u!1 &1373824601
 GameObject:
   m_ObjectHideFlags: 0
@@ -6219,6 +6393,7 @@ GameObject:
   - component: {fileID: 1411373853}
   - component: {fileID: 1411373855}
   - component: {fileID: 1411373854}
+  - component: {fileID: 1411373856}
   m_Layer: 5
   m_Name: Volume Text
   m_TagString: Untagged
@@ -6285,6 +6460,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1411373852}
+--- !u!114 &1411373856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1411373852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0098c7c74b71cb0448bd510dd4dc3b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: volume_text
 --- !u!1 &1413239812
 GameObject:
   m_ObjectHideFlags: 0
@@ -6555,6 +6742,7 @@ GameObject:
   - component: {fileID: 1430970414}
   - component: {fileID: 1430970416}
   - component: {fileID: 1430970415}
+  - component: {fileID: 1430970417}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -6577,8 +6765,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 7.37, y: 0}
+  m_SizeDelta: {x: -14.75, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1430970415
 MonoBehaviour:
@@ -6612,13 +6800,25 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 2
-  m_Text: "\tSinopse"
+  m_Text: "Bot\xE3o Sinopse"
 --- !u!222 &1430970416
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1430970413}
+--- !u!114 &1430970417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1430970413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0098c7c74b71cb0448bd510dd4dc3b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: sinopse_buttom
 --- !u!1 &1432607604
 GameObject:
   m_ObjectHideFlags: 0
@@ -6629,6 +6829,7 @@ GameObject:
   - component: {fileID: 1432607605}
   - component: {fileID: 1432607607}
   - component: {fileID: 1432607606}
+  - component: {fileID: 1432607608}
   m_Layer: 5
   m_Name: "Texto das Instru\xE7\xF5es"
   m_TagString: Untagged
@@ -6686,23 +6887,25 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Este trata da est\xF3ria de um soldado estilo hard boiled que foi convocado
-    para outro mundo atrav\xE9s de uma magia especial chamada, magia de convoca\xE7\xE3o
-    de her\xF3i. Ao ser convocado ele se descobre na entrada de uma caverna, ent\xE3o
-    uma voz santa e misteriosa que se diz uma sacerdotisa de um ser divino, come\xE7a
-    a falar com ele via \u201Ctelepatia\u201D e diz t\xEA-lo convocado a fim de pedir
-    sua ajuda para derrotar o rei dem\xF4nio que amea\xE7a destruir o mundo.\r\n\nInicialmente
-    ele estava meio perdido sobre toda essa est\xF3ria de outro mundo, dungeon, rei
-    dem\xF4nio e uma voz do al\xE9m conversando com ele, pois ele \xE9 afinal um soldado,
-    um militar e normalmente acharia um absurdo esta est\xF3ria, mas como ele n\xE3o
-    sabia aonde estava, ele resolveu tentar encarar isso como uma esp\xE9cie de \u201Cmiss\xE3o\u201D
-    e concorda ajud\xE1-la a derrotar o suposto rei dem\xF4nio.\r\n"
+  m_Text: text
 --- !u!222 &1432607607
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1432607604}
+--- !u!114 &1432607608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1432607604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0098c7c74b71cb0448bd510dd4dc3b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: instructions_text
 --- !u!1 &1440548773
 GameObject:
   m_ObjectHideFlags: 0
@@ -7047,6 +7250,7 @@ GameObject:
   - component: {fileID: 1486729859}
   - component: {fileID: 1486729861}
   - component: {fileID: 1486729860}
+  - component: {fileID: 1486729862}
   m_Layer: 5
   m_Name: "Texto dos Cr\xE9ditos"
   m_TagString: Untagged
@@ -7104,23 +7308,25 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Este trata da est\xF3ria de um soldado estilo hard boiled que foi convocado
-    para outro mundo atrav\xE9s de uma magia especial chamada, magia de convoca\xE7\xE3o
-    de her\xF3i. Ao ser convocado ele se descobre na entrada de uma caverna, ent\xE3o
-    uma voz santa e misteriosa que se diz uma sacerdotisa de um ser divino, come\xE7a
-    a falar com ele via \u201Ctelepatia\u201D e diz t\xEA-lo convocado a fim de pedir
-    sua ajuda para derrotar o rei dem\xF4nio que amea\xE7a destruir o mundo.\r\n\nInicialmente
-    ele estava meio perdido sobre toda essa est\xF3ria de outro mundo, dungeon, rei
-    dem\xF4nio e uma voz do al\xE9m conversando com ele, pois ele \xE9 afinal um soldado,
-    um militar e normalmente acharia um absurdo esta est\xF3ria, mas como ele n\xE3o
-    sabia aonde estava, ele resolveu tentar encarar isso como uma esp\xE9cie de \u201Cmiss\xE3o\u201D
-    e concorda ajud\xE1-la a derrotar o suposto rei dem\xF4nio.\r\n"
+  m_Text: text
 --- !u!222 &1486729861
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1486729858}
+--- !u!114 &1486729862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1486729858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0098c7c74b71cb0448bd510dd4dc3b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: credits_text
 --- !u!1 &1490165963
 GameObject:
   m_ObjectHideFlags: 0
@@ -7166,6 +7372,7 @@ GameObject:
   - component: {fileID: 1495455657}
   - component: {fileID: 1495455659}
   - component: {fileID: 1495455658}
+  - component: {fileID: 1495455660}
   m_Layer: 5
   m_Name: "Cr\xE9ditos Text"
   m_TagString: Untagged
@@ -7230,6 +7437,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1495455656}
+--- !u!114 &1495455660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1495455656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0098c7c74b71cb0448bd510dd4dc3b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: credits_buttom
 --- !u!1 &1531120478
 GameObject:
   m_ObjectHideFlags: 0
@@ -7701,6 +7920,7 @@ GameObject:
   - component: {fileID: 1601692737}
   - component: {fileID: 1601692739}
   - component: {fileID: 1601692738}
+  - component: {fileID: 1601692740}
   m_Layer: 5
   m_Name: Resolution Text
   m_TagString: Untagged
@@ -7765,6 +7985,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1601692736}
+--- !u!114 &1601692740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1601692736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0098c7c74b71cb0448bd510dd4dc3b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: resolution_text
 --- !u!1 &1624454217
 GameObject:
   m_ObjectHideFlags: 0
@@ -8170,7 +8402,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 467605970}
-        m_MethodName: 
+        m_MethodName: SetLanguage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8511,6 +8743,7 @@ GameObject:
   - component: {fileID: 1804461369}
   - component: {fileID: 1804461371}
   - component: {fileID: 1804461370}
+  - component: {fileID: 1804461372}
   m_Layer: 5
   m_Name: Grafics Text
   m_TagString: Untagged
@@ -8575,6 +8808,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1804461368}
+--- !u!114 &1804461372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1804461368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0098c7c74b71cb0448bd510dd4dc3b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: grafic_text
 --- !u!1 &1807181330
 GameObject:
   m_ObjectHideFlags: 0
@@ -8669,6 +8914,7 @@ GameObject:
   - component: {fileID: 1823564029}
   - component: {fileID: 1823564031}
   - component: {fileID: 1823564030}
+  - component: {fileID: 1823564032}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -8691,8 +8937,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 7.37, y: 0}
+  m_SizeDelta: {x: -14.75, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1823564030
 MonoBehaviour:
@@ -8726,13 +8972,25 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 2
-  m_Text: "\tInstru\xE7\xF5es"
+  m_Text: "Bot\xE3o Instru\xE7\xF5es"
 --- !u!222 &1823564031
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1823564028}
+--- !u!114 &1823564032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1823564028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0098c7c74b71cb0448bd510dd4dc3b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: instuctions_buttom
 --- !u!1 &1842811850
 GameObject:
   m_ObjectHideFlags: 0
@@ -8853,6 +9111,7 @@ GameObject:
   - component: {fileID: 1874076550}
   - component: {fileID: 1874076552}
   - component: {fileID: 1874076551}
+  - component: {fileID: 1874076553}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -8875,8 +9134,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 7.3725, y: 0}
+  m_SizeDelta: {x: -14.745, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1874076551
 MonoBehaviour:
@@ -8910,13 +9169,25 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 2
-  m_Text: "\tCr\xE9ditos"
+  m_Text: "Bot\xE3o Cr\xE9ditos"
 --- !u!222 &1874076552
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1874076549}
+--- !u!114 &1874076553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1874076549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0098c7c74b71cb0448bd510dd4dc3b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: credits_buttom
 --- !u!1 &1876522749
 GameObject:
   m_ObjectHideFlags: 0
@@ -9055,8 +9326,8 @@ RectTransform:
   m_Father: {fileID: 367224139}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0.6, y: 0}
+  m_AnchorMax: {x: 0.6, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -9240,7 +9511,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.6, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -9361,6 +9632,7 @@ GameObject:
   - component: {fileID: 2048991505}
   - component: {fileID: 2048991507}
   - component: {fileID: 2048991506}
+  - component: {fileID: 2048991508}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -9383,8 +9655,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 7.3728642, y: 0}
+  m_SizeDelta: {x: -14.744271, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2048991506
 MonoBehaviour:
@@ -9418,13 +9690,25 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 2
-  m_Text: "\tConfigura\xE7\xF5es"
+  m_Text: "Bot\xE3o Config"
 --- !u!222 &2048991507
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2048991504}
+--- !u!114 &2048991508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2048991504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0098c7c74b71cb0448bd510dd4dc3b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: config_buttom
 --- !u!1 &2087847362
 GameObject:
   m_ObjectHideFlags: 0

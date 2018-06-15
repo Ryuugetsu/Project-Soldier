@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Metodo de Colisão do ataque do inimigo
+
 public class Trigger : MonoBehaviour{
     
     private Player _player;
@@ -36,7 +38,7 @@ public class Trigger : MonoBehaviour{
 
     IEnumerator Attack()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
 
         //Debug.Log("Acertando o player");
         _player._life -= _attackForce;

@@ -23,23 +23,25 @@ public class CameraMoviment : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
-        if (_locked == false || _player._lock == false)
+        if (_locked == false )
         {
+
+            //Camera Seguindo o Player
             if (_player.transform.rotation.y > 0)
             {
+                //ajustar a posição da camera a esquerda
                 Vector3 move = new Vector3(_player.transform.position.x + _alignLeft, _player.transform.position.y + _posY, _player.transform.position.z + _posZ);
                 transform.position = Vector3.MoveTowards(transform.position, move, 0.05f);
             }
             else if (_player.transform.rotation.y < 0)
             {
+                //ajustar a posição da camera a direita
                 Vector3 move = new Vector3(_player.transform.position.x + _alignRight, _player.transform.position.y + _posY, _player.transform.position.z + _posZ);
                 transform.position = Vector3.MoveTowards(transform.position, move, 0.05f);
             }
         }
-        else
-        {
-
+        if(_locked == true){
+            //Trava a posição da camera e limita o Player a area da camera
             transform.position = transform.position;
             Actions actions = _player.GetComponent<Actions>();
 
