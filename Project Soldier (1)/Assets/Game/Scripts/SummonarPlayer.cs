@@ -8,10 +8,13 @@ public class SummonarPlayer : MonoBehaviour {
     private GameObject _playerMesh;
     [SerializeField] private GameObject _godRay;
     [SerializeField] private GameObject _dialogBox;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip audio;
 
-    
-	// Use this for initialization
-	void Start () {
+
+
+    // Use this for initialization
+    void Start () {
         _playerMesh = GameObject.Find("Soldier");
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>(); 
         
@@ -22,6 +25,8 @@ public class SummonarPlayer : MonoBehaviour {
         
         _playerMesh.SetActive(false);
         _player.enabled = false;
+        audioSource.clip = audio;
+        audioSource.Play();
         _godRay.SetActive(true);
 
     }

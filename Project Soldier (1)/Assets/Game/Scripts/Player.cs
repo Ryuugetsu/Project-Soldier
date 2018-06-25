@@ -7,7 +7,8 @@ public class Player : MonoBehaviour {
 	private Rigidbody _characterRigidbody;
     private Actions _actions;
     private PlayerController _playerController;
-
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip audio;
 
 
     [SerializeField]
@@ -88,7 +89,13 @@ public class Player : MonoBehaviour {
             }
         }      
     }
-    
+
+    private void OnEnable()
+    {
+        audioSource.clip = audio;
+        audioSource.Play();
+    }
+
     private void CalculateMovement()
     {
 

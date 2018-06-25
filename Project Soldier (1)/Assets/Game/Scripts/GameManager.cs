@@ -8,11 +8,13 @@ public class GameManager : MonoBehaviour {
 
     public Dialog dialog;
     [SerializeField] private GameObject _endPanel;
+    private Player player;
 
 
 
 	// Use this for initialization
 	void Start () {
+        player = FindObjectOfType<Player>();
         Vector3 posição = new Vector3(8.94f, -0.79f, 0);
 
         StartCoroutine(InitialDialog());
@@ -20,7 +22,10 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(player._isDead == true || _endPanel.activeInHierarchy == true)
+        {
+            StartCoroutine(EndSequence());
+        }
 	}
 
     IEnumerator InitialDialog()
@@ -42,8 +47,7 @@ public class GameManager : MonoBehaviour {
 
     private IEnumerator EndSequence()
     {
-
-
-        yield return null;
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene("Menu");
     }
 }

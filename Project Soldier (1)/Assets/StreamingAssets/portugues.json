@@ -22,8 +22,26 @@
 
 
 		{"key":"sinopse_text","value":"Este trata da estória de um soldado estilo hard boiled que foi convocado para outro mundo através de uma magia especial chamada, magia de convocação de herói. Ao ser convocado ele se descobre na entrada de uma caverna, então uma voz santa e misteriosa que se diz uma sacerdotisa de um ser divino, começa a falar com ele via “telepatia” e diz tê-lo convocado a fim de pedir sua ajuda para derrotar o rei demônio que ameaça destruir o mundo."},		
-		{"key":"instructions_text","value":"texto"},
-		{"key":"credits_text","value":"texto"},
+		
+		{"key":"text_walk","value":"Andar"},
+		{"key":"text_run","value":"Correr"},
+		{"key":"text_jump","value":"Pular"},
+		{"key":"text_aim","value":"Mirar"},
+		{"key":"text_shot","value":"Atirar"},
+
+		{"key":"programador_text","value":"Programadores:  "},
+		{"key":"programadores_text","value":"  Bruno Tavares Marinho de Morais"},
+		{"key":"Designer_text","value":"Game Designer:  "},
+		{"key":"Designers_text","value":"  Bruno Tavares Marinho de Morais"},
+		{"key":"Artist_text","value":"Artistas:  "},
+		{"key":"Desenhistas_text","value":"  Bruno Tavares Marinho de Morais"},
+		{"key":"extras_text","value":"Participações extras:  "},
+		{"key":"ajudante01_text","value":"  Carlos Henrique Alves da Silva (Audio/Dialogo)"},
+		{"key":"ajudante02_text","value":"  Willian Rodrigues de Lima (Logo/Site)"},
+		{"key":"ajudante03_text","value":"  Rodrigo do grupo Caximbola Softwares (Metodo de Pulo)"},
+		{"key":"ajudante04_text","value":"  Alberto Oliveira Barbosa (Trevo de 4 folhas / conselheiro)"},
+		{"key":"curso01_text","value":"  Canal do youtube: Brackeys"},
+		{"key":"curso02_text","value":"  Jonathan Weinberger (Udemy - O Guia Definitivo para Desenvolvimento de Jogos com Unity)"},
 
 
 		{"key":"sacerdotisa","value":"Sacerdotisa"},

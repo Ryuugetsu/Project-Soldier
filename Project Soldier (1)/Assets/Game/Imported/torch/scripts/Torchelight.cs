@@ -17,6 +17,6 @@ public class Torchelight : MonoBehaviour {
 		if (IntensityLight<0) IntensityLight=0;
 		if (IntensityLight>MaxLightIntensity) IntensityLight=MaxLightIntensity;		
 
-		TorchLight.intensity=IntensityLight/2f+Mathf.Lerp(IntensityLight+5f,IntensityLight+6f,Mathf.Cos(Time.deltaTime*30));		
+		TorchLight.intensity=IntensityLight/2f+Mathf.Lerp(IntensityLight+1f,IntensityLight+1.3f,Mathf.Cos(Time.deltaTime*30));		
 	}
 }
