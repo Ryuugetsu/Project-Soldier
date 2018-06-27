@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-
+    
 	private Rigidbody _characterRigidbody;
     private Actions _actions;
     private PlayerController _playerController;
@@ -41,7 +41,6 @@ public class Player : MonoBehaviour {
     private bool _isAttacking = false;
     private int selectedWeapon = 2;
     
-    public int _life;
     public bool _isDead = false;
     public bool _lock = false; //serve para paralisar totalmente o player
     private int _z = 0;
@@ -61,16 +60,19 @@ public class Player : MonoBehaviour {
         _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
         _collider = GetComponent<CapsuleCollider>();
 
-        _uiManager.UpdateLifes(_life);
+        _uiManager.UpdateLifes(GameManager.gameManager.Health);
         _distToGround = _collider.bounds.extents.y;
 		tempoPulando = maxTempoPulando + 1f;
 
+        
 
     }
 
     // Update is called once per frame
     void Update()
-    {        
+    {
+        GameManager.gameManager._isPlayerDead = _isDead;
+
         if (_lock == false)
         {
             if (_isDead == false)
@@ -337,9 +339,8 @@ public class Player : MonoBehaviour {
     
     public void Death()
     {
-        if(_life <= 0)
+        if(GameManager.gameManager.Health <= 0)
         {
-            _life = 0;
             _actions.Death();
             _isDead = true;
         }

@@ -43,10 +43,9 @@ public class Trigger : MonoBehaviour{
     {
         yield return new WaitForSeconds(0.5f);
 
-        //Debug.Log("Acertando o player");
-        _player._life -= _attackForce;
-        _uiManager.UpdateLifes(_player._life);
         _playerActions.Damage();
+        GameManager.gameManager.Health -= _attackForce;
+        _uiManager.UpdateLifes(GameManager.gameManager.Health);        
         _player.Death();
         _enemyActions._atacando = false;
 

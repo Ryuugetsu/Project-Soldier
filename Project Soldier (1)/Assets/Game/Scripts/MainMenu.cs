@@ -9,11 +9,15 @@ public class MainMenu : MonoBehaviour {
 
     public AudioMixer audioMixer;
     public Dropdown resolutionDropdown;
-    public Dropdown language;
+    public Dropdown languageDropdown;
     public GameObject loaderScreen;
     private LevelLoader _levelLoader;
     private Resolution[] _resolutions;
     private LocalizationManager localizationManager;
+
+    public Toggle fullscreenToggle;
+    public Dropdown qualityDropdown;
+    public Slider volumeSlider;
     
 
     private void Start()
@@ -21,7 +25,15 @@ public class MainMenu : MonoBehaviour {
         localizationManager = FindObjectOfType<LocalizationManager>();
         
         GetUnityResolutions();
+
+
+        SetFullscreen(IntParseBool(PlayerPrefs.GetInt("Fullscreen")));
+        SetLanguage(PlayerPrefs.GetInt("Language Index"));
+        SetVolume(PlayerPrefs.GetFloat("Volume"));
+        SetQuality(PlayerPrefs.GetInt("Quality"));
+        SetResolutions(PlayerPrefs.GetInt("Resolution Index"));
     }
+  
 
 
     public void PlayGame()
@@ -32,25 +44,42 @@ public class MainMenu : MonoBehaviour {
         _levelLoader = loaderScreen.GetComponent<LevelLoader>();
         _levelLoader.LoadLevel();
     }
-
+    
+    
     public void QuitGame()
     {
         //fecha o jogo
         Application.Quit();
     }
 
+    
     public void SetVolume(float volume)
-    {
+    {      
+
         //alteração do volume do jogo
         audioMixer.SetFloat("Volume", volume);
+
+
+        volumeSlider.value = volume;
+        //salvar ultima alteração do volume
+        PlayerPrefs.SetFloat("Volume", volume);
     }
+    
 
     public void SetQuality(int qualityIndex)
     {
+        //inserido para carregar o ultimo valor no dropdown quando iniciar
+        qualityDropdown.value = qualityIndex;
+
         //troca entre os niveis de qualidades
-        QualitySettings.SetQualityLevel(qualityIndex);        
+        QualitySettings.SetQualityLevel(qualityIndex);
+        
+
+        //salvar ultima alteração da qualidade
+        PlayerPrefs.SetInt("Quality", qualityIndex);
     }
 
+    
     private void GetUnityResolutions()
     {
         //pegar todas as resoluções disponiveis
@@ -80,32 +109,67 @@ public class MainMenu : MonoBehaviour {
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
     }
-
     public void SetResolutions(int resolutionIndex)
     {
         //armazena a resolução selecionada do vetor com todas as resoluções com base no index recebido
         Resolution resolution = _resolutions[resolutionIndex];
         //seta a resolução e o full screen
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-    }
 
+        resolutionDropdown.value = resolutionIndex;
+        PlayerPrefs.SetInt("Resolution Index", resolutionIndex);
+    }
+    
+    
     public void SetFullscreen(bool isFullscreen)
     {
+        if (isFullscreen)
+        {
+            PlayerPrefs.SetInt("Fullscreen", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Fullscreen", 0);
+        }
+
+
         //full screen
         Screen.fullScreen = isFullscreen;
-    }           
+        fullscreenToggle.isOn = isFullscreen;
 
-    public void SetLanguage()
+    } 
+    
+
+    private bool IntParseBool(int inteiro)
     {
-        switch (language.value)
+        if (inteiro == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
+    public void SetLanguage(int languageIndex)
+    {
+        PlayerPrefs.SetInt("Language Index", languageIndex);
+        languageDropdown.value = languageIndex;
+        switch (languageIndex)
         {
             case 0:
                 localizationManager.LoadLocalizedText("portugues.json");
+                localizationManager.currentLanguageIndex = 0;
+
                 break;
 
             case 1:
-                localizationManager.LoadLocalizedText("ingles.json");
+                localizationManager.LoadLocalizedText("ingles.json");                
+                localizationManager.currentLanguageIndex = 1;
+
                 break;
-        }
+        }              
     }
 }

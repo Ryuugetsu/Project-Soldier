@@ -38,8 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0039957035, g: 0.00021792634, b: 0.000000051515347,
-    a: 1}
+  m_IndirectSpecularColor: {r: 0.000017033932, g: 0.000000025772884, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2354,46 +2353,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   botaoVoltar: {fileID: 1390016176}
   reselect: {fileID: 0}
---- !u!1 &456517478
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 456517479}
-  - component: {fileID: 456517480}
-  m_Layer: 0
-  m_Name: LocalizationManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &456517479
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 456517478}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 303.64868, y: 156.9494, z: -8.125}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &456517480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 456517478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb4ff6353b37c6d45a4cb4cefa38e5dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &467605965
 GameObject:
   m_ObjectHideFlags: 0
@@ -2508,8 +2467,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 4245826411fa728448328019143b674d, type: 2}
   resolutionDropdown: {fileID: 434182413}
-  language: {fileID: 1678855851}
+  languageDropdown: {fileID: 1678855851}
   loaderScreen: {fileID: 1567020549}
+  fullscreenToggle: {fileID: 508173612}
+  qualityDropdown: {fileID: 1068072304}
+  volumeSlider: {fileID: 1390016178}
 --- !u!1 &472953307
 GameObject:
   m_ObjectHideFlags: 0
@@ -2727,6 +2689,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: instuctions_buttom
+--- !u!1001 &479537520
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4234850318874596, guid: 6dce49b4b169b054ea0aead816fa1b80, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 303.64868
+      objectReference: {fileID: 0}
+    - target: {fileID: 4234850318874596, guid: 6dce49b4b169b054ea0aead816fa1b80, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 156.9494
+      objectReference: {fileID: 0}
+    - target: {fileID: 4234850318874596, guid: 6dce49b4b169b054ea0aead816fa1b80, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -8.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4234850318874596, guid: 6dce49b4b169b054ea0aead816fa1b80, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4234850318874596, guid: 6dce49b4b169b054ea0aead816fa1b80, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4234850318874596, guid: 6dce49b4b169b054ea0aead816fa1b80, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4234850318874596, guid: 6dce49b4b169b054ea0aead816fa1b80, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4234850318874596, guid: 6dce49b4b169b054ea0aead816fa1b80, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 6dce49b4b169b054ea0aead816fa1b80, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &508173610
 GameObject:
   m_ObjectHideFlags: 0
@@ -9891,7 +9895,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 467605970}
         m_MethodName: SetLanguage
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
